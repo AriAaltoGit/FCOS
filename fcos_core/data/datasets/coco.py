@@ -80,8 +80,11 @@ class COCODataset(torchvision.datasets.coco.CocoDetection):
         target.add_field("labels", classes)
 
         masks = [obj["segmentation"] for obj in anno]
-        masks = SegmentationMask(masks, img.size, mode='poly')
-        target.add_field("masks", masks)
+        # masks = SegmentationMask(masks, img.size, mode='poly')
+        # target.add_field("masks", masks)
+        # print("boxes")
+        # print(boxes)
+        target.add_field("masks", boxes)
 
         if anno and "keypoints" in anno[0]:
             keypoints = [obj["keypoints"] for obj in anno]

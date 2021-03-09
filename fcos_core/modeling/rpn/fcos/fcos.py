@@ -180,6 +180,13 @@ class FCOSModule(torch.nn.Module):
             locations, box_cls, box_regression, 
             centerness, image_sizes
         )
+        print("boxes")
+        print(boxes[0])
+        bbox = boxes[0].convert("xywh")
+        print(bbox.bbox)
+        print(type(bbox))
+        print(len(bbox))
+
         return boxes, {}
 
     def compute_locations(self, features):

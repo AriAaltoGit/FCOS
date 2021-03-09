@@ -43,6 +43,8 @@ class GeneralizedRCNN(nn.Module):
                 like `scores`, `labels` and `mask` (for Mask R-CNN models).
 
         """
+        #print('targets--')
+        #print(targets)
         if self.training and targets is None:
             raise ValueError("In training mode, targets should be passed")
         images = to_image_list(images)
@@ -54,6 +56,7 @@ class GeneralizedRCNN(nn.Module):
             # RPN-only models don't have roi_heads
             x = features
             result = proposals
+            # print(result)
             detector_losses = {}
 
         if self.training:

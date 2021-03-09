@@ -365,9 +365,10 @@ class COCODemo(object):
         for box, score, label in zip(boxes, scores, labels):
             x, y = box[:2]
             s = template.format(label, score)
-            cv2.putText(
-                image, s, (x, y), cv2.FONT_HERSHEY_SIMPLEX, .5, (255, 255, 255), 1
-            )
+            
+            cv2.putText(image, s, (x, y), cv2.FONT_HERSHEY_SIMPLEX, .5, (255), 1)
+               #  image, s, (x, y), cv2.FONT_HERSHEY_SIMPLEX, .5, (255, 255, 255), 1
+            #)
 
         return image
 

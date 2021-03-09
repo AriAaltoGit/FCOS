@@ -32,6 +32,8 @@ def compute_on_dataset(model, data_loader, device, timer=None):
                 torch.cuda.synchronize()
                 timer.toc()
             output = [o.to(cpu_device) for o in output]
+            print('output')
+            print(targets[0].bbox.tolist())
         results_dict.update(
             {img_id: result for img_id, result in zip(image_ids, output)}
         )
@@ -102,7 +104,7 @@ def inference(
     predictions = _accumulate_predictions_from_multiple_gpus(predictions)
     if not is_main_process():
         return
-
+    print(predictions)
     if output_folder:
         torch.save(predictions, os.path.join(output_folder, "predictions.pth"))
 

@@ -29,6 +29,8 @@ def build_dataset(dataset_list, transforms, dataset_catalog, is_train=True):
             "dataset_list should be a list of strings, got {}".format(dataset_list)
         )
     datasets = []
+    print("dataset_list")
+    print(dataset_list)
     for dataset_name in dataset_list:
         data = dataset_catalog.get(dataset_name)
         factory = getattr(D, data["factory"])
@@ -40,8 +42,11 @@ def build_dataset(dataset_list, transforms, dataset_catalog, is_train=True):
         if data["factory"] == "PascalVOCDataset":
             args["use_difficult"] = not is_train
         args["transforms"] = transforms
+        print("transforms")
+        print(transforms)
         # make dataset from factory
         dataset = factory(**args)
+        print(dataset)
         datasets.append(dataset)
 
     # for testing, return a list of datasets

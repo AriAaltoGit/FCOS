@@ -165,7 +165,7 @@ class FCOS(object):
             self,
             model_name="fcos_R_50_FPN_1x",
             nms_thresh=0.6,
-            cpu_only=False
+            cpu_only=True
     ):
         root_dir = os.path.dirname(os.path.abspath(__file__))
         self.config_files_dir = os.path.join(root_dir, "configs")

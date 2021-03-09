@@ -1,28 +1,66 @@
 MODEL:
   META_ARCHITECTURE: "GeneralizedRCNN"
-  WEIGHT: "catalog://ImageNetPretrained/MSRA/R-101"
+  #WEIGHT: "catalog://ImageNetPretrained/MSRA/R-101"
+  # WEIGHT: "FCOS_imprv_R_101_FPN_2x.pth" # "/u/50/orrea1/unix/Documents/FCOS/FCOS_R_101_FPN_2x.pth"
   RPN_ONLY: True
   FCOS_ON: True
+  RETINANET_ON: False
   BACKBONE:
     CONV_BODY: "R-101-FPN-RETINANET"
+    #CONV_BODY: "R-50-FPN-RETINANET"  
+  #DEVICE: "cpu"
   RESNETS:
-    BACKBONE_OUT_CHANNELS: 256
+    BACKBONE_OUT_CHANNELS: 2 #256
   RETINANET:
     USE_C5: False # FCOS uses P5 instead of C5
+  FCOS:
+    NUM_CLASSES: 2
+    FPN_STRIDES: [16, 32, 64]
+    NUM_CONVS: 2
+  RETINANET: 
+    NUM_CLASSES: 2
+  RPN:
+    BATCH_SIZE_PER_IMAGE: 256
+    ANCHOR_SIZES: (32, 64, 128, 256, 512)
 DATASETS:
-  TRAIN: ("coco_2014_train", "coco_2014_valminusminival")
-  TEST: ("coco_2014_minival",)
+  TRAIN: ("coco_drone_train",) # "coco_drone_val") #("coco_2014_train", "coco_2014_valminusminival")
+  TEST: ("coco_drone_test",) #("coco_2014_minival",)
 INPUT:
-  MIN_SIZE_RANGE_TRAIN: (640, 800)
-  MAX_SIZE_TRAIN: 1333
+  MIN_SIZE_RANGE_TRAIN: (224, 224)
+  MAX_SIZE_TRAIN: 224
   MIN_SIZE_TEST: 800
-  MAX_SIZE_TEST: 1333
+  MAX_SIZE_TEST: 800
 DATALOADER:
-  SIZE_DIVISIBILITY: 32
+  SIZE_DIVISIBILITY: 1 #32
+  NUM_WORKERS: 1
+  ASPECT_RATIO_GROUPING: True
+TEST:
+  IMS_PER_BATCH: 1
+  DETECTIONS_PER_IMG: 1000
 SOLVER:
+  CHECKPOINT_PERIOD: 10
   BASE_LR: 0.01
   WEIGHT_DECAY: 0.0001
-  STEPS: (120000, 160000)
-  MAX_ITER: 180000
-  IMS_PER_BATCH: 16
+  #STEPS: (120000, 160000)
+  # MAX_ITER: 180000
+  STEPS: (6000, 8000)
+  MAX_ITER: 700
+  # MAX_ITER: 90000
+  IMS_PER_BATCH: 1 #  3
+  # IMS_PER_BATCH: 16
   WARMUP_METHOD: "constant"
+  WARMUP_ITERS: 10
+OUTPUT_DIR: "trained_models/fcos_R_101_FPN_2x"
+
+# drone_train.sh --skip-test \
+
+#import torch
+#model = torch.load('trained_models/fcos_R_101_FPN_2x/inference/coco_drone_test/predictions.pth')
+#def xyxy_to_xywh(xyxy_box):
+#       xmin, ymin, xmax, ymax = xyxy_box
+#       TO_REMOVE = 1
+#       xywh_box = (xmin, ymin, xmax - xmin + TO_REMOVE, ymax - ymin + TO_REMOVE)
+#       return xywh_box
+
+#for x in model[0].bbox.tolist():
+       #print(xyxy_to_xywh(x))

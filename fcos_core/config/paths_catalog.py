@@ -5,8 +5,20 @@ import os
 
 
 class DatasetCatalog(object):
-    DATA_DIR = "datasets"
+    DATA_DIR = ""  #"datasets"
     DATASETS = {
+        "coco_drone_train": {
+            "img_dir": "/u/50/orrea1/unix/Documents/MATLAB/drone/video",
+            "ann_file": "/u/50/orrea1/unix/Documents/MATLAB/drone/acf_annotations/acf_coco_14_train.json"
+        },
+        "coco_drone_val": {
+            "img_dir": "/u/50/orrea1/unix/Documents/MATLAB/drone/video",
+            "ann_file": "/u/50/orrea1/unix/Documents/MATLAB/drone/acf_annotations/acf_coco_14_val.json"
+        },
+        "coco_drone_test": {
+            "img_dir": "/u/50/orrea1/unix/Documents/MATLAB/drone/video",
+            "ann_file": "/u/50/orrea1/unix/Documents/MATLAB/drone/acf_annotations/acf_coco_14_test.json"
+        },
         "coco_2017_train": {
             "img_dir": "coco/train2017",
             "ann_file": "coco/annotations/instances_train2017.json"

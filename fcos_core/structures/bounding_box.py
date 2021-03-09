@@ -204,7 +204,12 @@ class BoxList(object):
 
     def __getitem__(self, item):
         bbox = BoxList(self.bbox[item], self.size, self.mode)
+        # print("self.extra_fields.items()")
+        # print(self.extra_fields.items())
         for k, v in self.extra_fields.items():
+            # print(v)
+            # print(type(v))
+            # print("------")
             bbox.add_field(k, v[item])
         return bbox
 

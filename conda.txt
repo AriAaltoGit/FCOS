@@ -1,0 +1,33 @@
+conda activate FCOS
+ ~/anaconda3/bin/conda info --envs 
+
+https://github.com/tianzhi0549/FCOS/issues/54#issuecomment-497558687
+
+In order to train FCOS on your own dataset, you need to,
+
+Add you dataset to
+FCOS/fcos_core/config/paths_catalog.py
+
+Line 10 in efb76e4
+
+ "coco_2017_train": { 
+. Please use _coco_style as the suffix of your dataset names.
+In https://github.com/tianzhi0549/FCOS/blob/master/configs/fcos/fcos_R_50_FPN_1x.yaml, change DATASETS to your own ones.
+
+Modify MODEL.FCOS.NUM_CLASSES in
+FCOS/maskrcnn_benchmark/config/defaults.py
+
+Line 284 in ff8376b
+
+ _C.MODEL.FCOS.NUM_CLASSES = 81  # the number of classes including background 
+if your dataset has a different number of classes.
+
+fcos_core/config
+
+# Test in ipython
+import torch
+model = torch.load('inference/coco_drone_train/coco_results.pth')
+
+visdrone
+8625dPA45PS5euZ
+
