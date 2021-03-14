@@ -31,3 +31,7 @@ model = torch.load('inference/coco_drone_train/coco_results.pth')
 visdrone
 8625dPA45PS5euZ
 
+>>> import torch
+>>> print(torch.__version__)
+1.4.0
+

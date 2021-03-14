@@ -3,6 +3,7 @@ from . import transforms as T
 
 
 def build_transforms(cfg, is_train=True):
+    print("build_transforms")
     if is_train:
         if cfg.INPUT.MIN_SIZE_RANGE_TRAIN[0] == -1:
             min_size = cfg.INPUT.MIN_SIZE_TRAIN
@@ -27,10 +28,11 @@ def build_transforms(cfg, is_train=True):
 
     transform = T.Compose(
         [
-           # T.Resize(min_size, max_size),
+            T.Resize(min_size, max_size),
            # T.RandomHorizontalFlip(flip_prob),
             T.ToTensor(),
             normalize_transform,
         ]
     )
+    print("HERE transoform")
     return transform
