@@ -17,6 +17,7 @@ from fcos_core.utils.comm import synchronize, get_rank
 from fcos_core.utils.logger import setup_logger
 from fcos_core.utils.miscellaneous import mkdir
 
+from fcos_core.bcolors import bcolors
 
 def main():
     parser = argparse.ArgumentParser(description="PyTorch Object Detection Inference")
@@ -79,8 +80,9 @@ def main():
             output_folders[idx] = output_folder
     data_loaders_val = make_data_loader(cfg, is_train=False, is_distributed=distributed)
     for output_folder, dataset_name, data_loader_val in zip(output_folders, dataset_names, data_loaders_val):
-        print("ouput folder:")
-        print(output_folder)
+                
+        print(f"{bcolors.WARNING}output_folder{bcolors.ENDC}")
+        print(f"{bcolors.WARNING}{0}{bcolors.ENDC}".format(output_folder))
         inference(
             model,
             data_loader_val,

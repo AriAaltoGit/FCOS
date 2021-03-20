@@ -180,16 +180,19 @@ class FCOSModule(torch.nn.Module):
             locations, box_cls, box_regression, 
             centerness, image_sizes
         )
-        print("boxes")
-        print(boxes[0])
-        bbox = boxes[0].convert("xywh")
-        print(bbox.bbox)
-        print(type(bbox))
-        print(len(bbox))
+        # print("boxes")
+        # print(boxes[0])
+        # bbox = boxes[0].convert("xywh")
+        # print(bbox.bbox)
+        # print(type(bbox))
+        # print(len(bbox))
 
         return boxes, {}
 
     def compute_locations(self, features):
+        print("features")
+        print(len(features))
+        print(len(self.fpn_strides))
         locations = []
         for level, feature in enumerate(features):
             h, w = feature.size()[-2:]

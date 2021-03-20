@@ -14,6 +14,8 @@ from ..utils.comm import synchronize
 from ..utils.timer import Timer, get_time_str
 from .bbox_aug import im_detect_bbox_aug
 
+from fcos_core.bcolors import bcolors
+
 
 def compute_on_dataset(model, data_loader, device, timer=None):
     model.eval()
@@ -33,6 +35,7 @@ def compute_on_dataset(model, data_loader, device, timer=None):
                 timer.toc()
             output = [o.to(cpu_device) for o in output]
             print('output')
+            print(image_ids)
             print(targets[0].bbox.tolist())
         results_dict.update(
             {img_id: result for img_id, result in zip(image_ids, output)}
@@ -104,7 +107,9 @@ def inference(
     predictions = _accumulate_predictions_from_multiple_gpus(predictions)
     if not is_main_process():
         return
-    print(predictions)
+    
+    print(f"{bcolors.WARNING}Inference: predictions{bcolors.ENDC}")
+    print(f"{bcolors.WARNING}{0}{bcolors.ENDC}".format(predictions))
     if output_folder:
         torch.save(predictions, os.path.join(output_folder, "predictions.pth"))
 

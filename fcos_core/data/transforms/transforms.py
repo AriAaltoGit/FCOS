@@ -4,6 +4,8 @@ import random
 import torch
 import torchvision
 from torchvision.transforms import functional as F
+from fcos_core.bcolors import bcolors
+from fcos_core.structures.bounding_box import BoxList
 
 
 class Compose(object):
@@ -58,6 +60,7 @@ class Resize(object):
         size = self.get_size(image.size)
         image = F.resize(image, size)
         if isinstance(target, list):
+            print(f"{bcolors.WARNING}transforms image.size{bcolors.ENDC}")
             target = [t.resize(image.size) for t in target]
         elif target is None:
             return image
