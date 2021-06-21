@@ -6,7 +6,11 @@ import os
 
 class DatasetCatalog(object):
     DATA_DIR = ""  #"datasets"
-    DATASETS = {
+    DATASETS = {        
+        "voc_person8_train": {
+            "data_dir": "~/person8",
+            "split": "val"
+        },
         "coco_drone_train": {
             "img_dir": "/u/50/orrea1/unix/Documents/MATLAB/drone/video",
             "ann_file": "/u/50/orrea1/unix/Documents/MATLAB/drone/acf_annotations/acf_coco_14_train.json"
