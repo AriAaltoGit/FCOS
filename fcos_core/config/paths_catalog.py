@@ -9,7 +9,7 @@ class DatasetCatalog(object):
     DATASETS = {        
         "voc_person8_train": {
             "data_dir": "~/person8",
-            "split": "person_train"
+            "split": "person_train_2"
         },
         "coco_drone_train": {
             "img_dir": "/u/50/orrea1/unix/Documents/MATLAB/drone/video",
