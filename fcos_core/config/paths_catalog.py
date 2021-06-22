@@ -11,6 +11,10 @@ class DatasetCatalog(object):
             "data_dir": "/data/mnist/data_drive/person8",
             "split": "person_train_2"
         },
+        "voc_person8_test": {
+            "data_dir": "/data/mnist/data_drive/person8",
+            "split": "person_train_2"
+        },
         "coco_drone_train": {
             "img_dir": "/u/50/orrea1/unix/Documents/MATLAB/drone/video",
             "ann_file": "/u/50/orrea1/unix/Documents/MATLAB/drone/acf_annotations/acf_coco_14_train.json"
