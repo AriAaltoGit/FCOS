@@ -190,9 +190,11 @@ class FCOSModule(torch.nn.Module):
         return boxes, {}
 
     def compute_locations(self, features):
-        print("features")
-        print(len(features))
-        print(len(self.fpn_strides))
+        # print("def compute_locations")
+        # print("# of features")
+        # print(len(features))
+        # print("# of fpn_strides")
+        # print(len(self.fpn_strides))
         locations = []
         for level, feature in enumerate(features):
             h, w = feature.size()[-2:]
