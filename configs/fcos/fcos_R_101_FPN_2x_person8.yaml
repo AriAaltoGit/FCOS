@@ -51,7 +51,7 @@ SOLVER:
   # IMS_PER_BATCH: 16
   WARMUP_METHOD: "constant"
   WARMUP_ITERS: 100
-OUTPUT_DIR: "trained_models/fcos_R_101_FPN_2x_person8"
+OUTPUT_DIR: "/data/mnist/data_drive/fcos_trained_models/fcos_R_101_FPN_2x_person8"
 
 # drone_train.sh --skip-test \
 
