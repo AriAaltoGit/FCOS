@@ -8,7 +8,7 @@ class DatasetCatalog(object):
     DATA_DIR = ""  #"datasets"
     DATASETS = {        
         "voc_person8_train": {
-            "data_dir": "~/person8",
+            "data_dir": "/data/mnist/data_drive/person8",
             "split": "person_train_2"
         },
         "coco_drone_train": {
