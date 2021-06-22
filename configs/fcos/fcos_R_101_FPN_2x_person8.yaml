@@ -24,7 +24,7 @@ MODEL:
     ANCHOR_SIZES: (16, 32, 64, 128, 256, 512) #(32, 64, 128, 256, 512)
 DATASETS:
   TRAIN: ("voc_person8_train",)
-  TEST: ("voc_person8_train,")
+  TEST: ("voc_person8_train",)
 INPUT:
   MIN_SIZE_RANGE_TRAIN: (800, 1024) #(224, 800)
   #MIN_SIZE_TRAIN: (1024,)
