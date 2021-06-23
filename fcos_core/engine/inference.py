@@ -37,6 +37,7 @@ def compute_on_dataset(model, data_loader, device, timer=None):
             print('output')
             print(image_ids)
             print(targets[0].bbox.tolist())
+            print(output)
         results_dict.update(
             {img_id: result for img_id, result in zip(image_ids, output)}
         )
