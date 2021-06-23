@@ -13,7 +13,7 @@ class DatasetCatalog(object):
         },
         "voc_person8_test": {
             "data_dir": "/data/mnist/data_drive/person8",
-            "split": "person_train_2"
+            "split": "person_train_3"
         },
         "coco_drone_train": {
             "img_dir": "/u/50/orrea1/unix/Documents/MATLAB/drone/video",
