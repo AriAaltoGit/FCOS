@@ -26,10 +26,10 @@ DATASETS:
   TRAIN: ("voc_person8_train",)
   TEST: ("voc_person8_train",)
 INPUT:
-  MIN_SIZE_RANGE_TRAIN: (800, 1024) #(224, 800)
-  #MIN_SIZE_TRAIN: (1024,)
+  #MIN_SIZE_RANGE_TRAIN: (800, 1024) #(224, 800)
+  MIN_SIZE_TRAIN: (1280,)
   MAX_SIZE_TRAIN: 1280
-  MIN_SIZE_TEST: 800
+  MIN_SIZE_TEST: 1280
   MAX_SIZE_TEST: 1280
 DATALOADER:
   SIZE_DIVISIBILITY: 1 #32
@@ -45,9 +45,9 @@ SOLVER:
   STEPS: (120000, 160000)
   # MAX_ITER: 180000
   #STEPS: (6000, 8000)
-  MAX_ITER: 5000
+  MAX_ITER: 1500
   # MAX_ITER: 90000
-  IMS_PER_BATCH: 6 #  3
+  IMS_PER_BATCH: 8 #  3
   # IMS_PER_BATCH: 16
   WARMUP_METHOD: "constant"
   WARMUP_ITERS: 100
@@ -57,6 +57,12 @@ OUTPUT_DIR: "/data/mnist/data_drive/fcos_trained_models/fcos_R_101_FPN_2x_person
 
 #import torch
 #model = torch.load('trained_models/fcos_R_101_FPN_2x/inference/coco_drone_test/predictions.pth')
+# /data/mnist/data_drive/fcos_trained_models/fcos_R_101_FPN_2x_person8/inference/voc_person8_train/predictions.pth
+
+#import torch
+#path = '/data/mnist/data_drive/fcos_trained_models/fcos_R_101_FPN_2x_person8/inference/voc_person8_train/predictions.pth'
+#model = torch.load(path)
+
 #def xyxy_to_xywh(xyxy_box):
 #       xmin, ymin, xmax, ymax = xyxy_box
 #       TO_REMOVE = 1
