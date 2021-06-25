@@ -5,5 +5,5 @@ python -m torch.distributed.launch \
     --master_port='12340' \
     --master_addr=localhost \
     tools/train_net.py \
-    --config-file fcos/configs/fcos_R_101_FPN_2x_person8.yaml 
+    --config-file configs/fcos/fcos_R_101_FPN_2x_person8.yaml
     
