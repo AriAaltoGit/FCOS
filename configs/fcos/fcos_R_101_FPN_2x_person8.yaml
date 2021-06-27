@@ -23,7 +23,7 @@ MODEL:
     BATCH_SIZE_PER_IMAGE: 256
     ANCHOR_SIZES: (4, 8, 16) #(32, 64, 128, 256, 512) # (16, 32, 64, 128, 256, 512)
 DATASETS:
-  TRAIN: ("voc_man_shadows_train,")
+  TRAIN: ("voc_man_shadows_train",)
   TEST: ("voc_person8_train",)
 INPUT:
   #MIN_SIZE_RANGE_TRAIN: (800, 1024) #(224, 800)
