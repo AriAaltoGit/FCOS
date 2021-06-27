@@ -9,7 +9,7 @@ class DatasetCatalog(object):
     DATASETS = {        
         "voc_man_shadows_train": {
             "data_dir": "/data/mnist/data_drive/man_shadows",
-            "split": "person_train_2"
+            "split": "person_train"
         },
         "voc_person8_train": {
             "data_dir": "/data/mnist/data_drive/person8",
