@@ -29,8 +29,8 @@ INPUT:
   #MIN_SIZE_RANGE_TRAIN: (800, 1024) #(224, 800)
   MIN_SIZE_TRAIN: (16,)
   MAX_SIZE_TRAIN: 32
-  MIN_SIZE_TEST: 1024 #1280
-  MAX_SIZE_TEST: 4096 #1280
+  MIN_SIZE_TEST: 16 #1280
+  MAX_SIZE_TEST: 32 #1280
 DATALOADER:
   SIZE_DIVISIBILITY: 1 #32
   NUM_WORKERS: 4
@@ -64,7 +64,9 @@ OUTPUT_DIR: "/data/mnist/data_drive/fcos_trained_models/fcos_R_101_FPN_2x_person
 
 #import torch
 #path = '/data/mnist/data_drive/fcos_trained_models/fcos_R_101_FPN_2x_person8/inference/voc_person8_train/predictions.pth'
-#model = torch.load(path)
+# model = torch.load(path)
+
+# path = '/data/mnist/data_drive/fcos_trained_models/fcos_R_101_FPN_2x_person8_man_shadows/inference/voc_man_shadows_test/predictions.pth'
 
 #def xyxy_to_xywh(xyxy_box):
 #       xmin, ymin, xmax, ymax = xyxy_box

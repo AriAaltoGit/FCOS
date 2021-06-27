@@ -12,7 +12,7 @@ class DatasetCatalog(object):
             "split": "person_train"
         },
         "voc_man_shadows_test": {
-            "data_dir": "/data/mnist/data_drive/man_shadows_test",
+            "data_dir": "/data/mnist/data_drive/man_shadows",
             "split": "person_test"
         },
         "voc_person8_train": {
