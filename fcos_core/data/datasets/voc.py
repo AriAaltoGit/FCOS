@@ -47,7 +47,7 @@ class PascalVOCDataset(torch.utils.data.Dataset):
         self.transforms = transforms
 
         self._annopath = os.path.join(self.root, "Annotations", "%s.xml")
-        self._imgpath = os.path.join(self.root, "JPEGImages", "%s.jpg")
+        self._imgpath = os.path.join(self.root, "JPEGImages", "%s.png")
         self._imgsetpath = os.path.join(self.root, "ImageSets", "Main", "%s.txt")
 
         with open(self._imgsetpath % self.image_set) as f:
