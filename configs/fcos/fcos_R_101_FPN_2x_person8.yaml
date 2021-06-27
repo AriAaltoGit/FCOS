@@ -15,25 +15,25 @@ MODEL:
     USE_C5: False # FCOS uses P5 instead of C5
   FCOS:
     NUM_CLASSES: 2
-    FPN_STRIDES: [8, 16, 32, 64, 128] # [4, 8, 16, 32, 64, 128]
+    FPN_STRIDES: [4, 8, 16] #[8, 16, 32, 64, 128] # [4, 8, 16, 32, 64, 128]
     NUM_CONVS: 4
   RETINANET: 
     NUM_CLASSES: 2
   RPN:
     BATCH_SIZE_PER_IMAGE: 256
-    ANCHOR_SIZES: (32, 64, 128, 256, 512) # (16, 32, 64, 128, 256, 512)
+    ANCHOR_SIZES: (4, 8, 16) #(32, 64, 128, 256, 512) # (16, 32, 64, 128, 256, 512)
 DATASETS:
   TRAIN: ("voc_man_shadows_train,") #("voc_person8_train",)
   TEST: ("voc_person8_train",)
 INPUT:
   #MIN_SIZE_RANGE_TRAIN: (800, 1024) #(224, 800)
-  MIN_SIZE_TRAIN: (1280,)
-  MAX_SIZE_TRAIN: 1280
+  MIN_SIZE_TRAIN: (16,)
+  MAX_SIZE_TRAIN: 32
   MIN_SIZE_TEST: 1280
   MAX_SIZE_TEST: 1280
 DATALOADER:
   SIZE_DIVISIBILITY: 1 #32
-  NUM_WORKERS: 3
+  NUM_WORKERS: 4
   ASPECT_RATIO_GROUPING: True
 TEST:
   IMS_PER_BATCH: 1
@@ -47,11 +47,11 @@ SOLVER:
   #STEPS: (6000, 8000)
   MAX_ITER: 1500
   # MAX_ITER: 90000
-  IMS_PER_BATCH: 8 #  3
+  IMS_PER_BATCH: 16 #  3
   # IMS_PER_BATCH: 16
   WARMUP_METHOD: "constant"
   WARMUP_ITERS: 100
-OUTPUT_DIR: "/data/mnist/data_drive/fcos_trained_models/fcos_R_101_FPN_2x_person8"
+OUTPUT_DIR: "/data/mnist/data_drive/fcos_trained_models/fcos_R_101_FPN_2x_person8_man_shadows"
 
 # drone_train.sh --skip-test \
 
