@@ -7,6 +7,10 @@ import os
 class DatasetCatalog(object):
     DATA_DIR = ""  #"datasets"
     DATASETS = {        
+        "voc_man_shadows_train": {
+            "data_dir": "/data/mnist/data_drive/man_shadows",
+            "split": "person_train_2"
+        },
         "voc_person8_train": {
             "data_dir": "/data/mnist/data_drive/person8",
             "split": "person_train_2"

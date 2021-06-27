@@ -10,7 +10,7 @@ MODEL:
     CONV_BODY: "R-50-FPN-RETINANET"  
   #DEVICE: "cpu"
   RESNETS:
-    BACKBONE_OUT_CHANNELS: 32
+    BACKBONE_OUT_CHANNELS: 256
   RETINANET:
     USE_C5: False # FCOS uses P5 instead of C5
   FCOS:
@@ -23,7 +23,7 @@ MODEL:
     BATCH_SIZE_PER_IMAGE: 256
     ANCHOR_SIZES: (32, 64, 128, 256, 512) # (16, 32, 64, 128, 256, 512)
 DATASETS:
-  TRAIN: ("voc_person8_train",)
+  TRAIN: ("voc_man_shadows_train,") #("voc_person8_train",)
   TEST: ("voc_person8_train",)
 INPUT:
   #MIN_SIZE_RANGE_TRAIN: (800, 1024) #(224, 800)
