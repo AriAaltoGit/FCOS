@@ -1,13 +1,13 @@
 MODEL:
   META_ARCHITECTURE: "GeneralizedRCNN"
-  #WEIGHT: "catalog://ImageNetPretrained/MSRA/R-101"
+  WEIGHT: "catalog://ImageNetPretrained/MSRA/R-101"
   # WEIGHT: "FCOS_imprv_R_101_FPN_2x.pth" # "/u/50/orrea1/unix/Documents/FCOS/FCOS_R_101_FPN_2x.pth"
   RPN_ONLY: True
   FCOS_ON: True
   RETINANET_ON: False
   BACKBONE:
-    #CONV_BODY: "R-101-FPN-RETINANET"
-    CONV_BODY: "R-50-FPN-RETINANET"  
+    CONV_BODY: "R-101-FPN-RETINANET"
+    #CONV_BODY: "R-50-FPN-RETINANET"  
   #DEVICE: "cpu"
   RESNETS:
     BACKBONE_OUT_CHANNELS: 256
@@ -62,7 +62,7 @@ OUTPUT_DIR: "/data/mnist/data_drive/fcos_trained_models/fcos_R_101_FPN_2x_person
 #model = torch.load('trained_models/fcos_R_101_FPN_2x/inference/coco_drone_test/predictions.pth')
 # /data/mnist/data_drive/fcos_trained_models/fcos_R_101_FPN_2x_person8/inference/voc_person8_train/predictions.pth
 
-#import torch
+# import torch
 #path = '/data/mnist/data_drive/fcos_trained_models/fcos_R_101_FPN_2x_person8/inference/voc_person8_train/predictions.pth'
 # model = torch.load(path)
 
