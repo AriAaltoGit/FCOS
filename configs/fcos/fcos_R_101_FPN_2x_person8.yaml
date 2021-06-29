@@ -15,16 +15,19 @@ MODEL:
     BACKBONE_OUT_CHANNELS: 32
   RETINANET:
     USE_C5: False # FCOS uses P5 instead of C5
+#    NUM_CLASSES: 2
   FCOS:
+    NORM_REG_TARGETS: True
+    CENTERNESS_ON_REG: True
+    CENTER_SAMPLING_RADIUS: 1.5
+    IOU_LOSS_TYPE: "giou"
     NUM_CLASSES: 2
-    FPN_STRIDES: [4, 8, 16, 32, 64] #[8, 16, 32, 64, 128] # [4, 8, 162, 64, 128] [2, 4, 8, 16, 32] #
+    #FPN_STRIDES: [4, 8, 16, 32, 64] #[8, 16, 32, 64, 128] # [4, 8, 162, 64, 128] [2, 4, 8, 16, 32] #
     NUM_CONVS: 4
-  RETINANET: 
-    NUM_CLASSES: 2
-  RPN:
-    BATCH_SIZE_PER_IMAGE: 512
-    ANCHOR_SIZES: (4, 8, 16, 32, 64) #(32, 64, 128, 256, 512) # (16, 32, 64, 128, 256, 512)
-    MIN_SIZE: 15
+#  RPN:
+#    BATCH_SIZE_PER_IMAGE: 512
+#    ANCHOR_SIZES: (4, 8, 16, 32, 64) #(32, 64, 128, 256, 512) # (16, 32, 64, 128, 256, 512)
+#    MIN_SIZE: 15
 DATASETS:
   TRAIN: ("voc_man_shadows_train",)
   TEST: ("voc_man_shadows_frame_test",) #("voc_person8_train",)
