@@ -10,7 +10,7 @@ MODEL:
   BACKBONE:
     CONV_BODY: "R-101-FPN-RETINANET"
     #CONV_BODY: "R-50-FPN-RETINANET"  
-  #DEVICE: "cpu"
+  DEVICE: "cpu"
   RESNETS:
     BACKBONE_OUT_CHANNELS: 32
   RETINANET:
@@ -22,12 +22,12 @@ MODEL:
     CENTER_SAMPLING_RADIUS: 1.5
     IOU_LOSS_TYPE: "giou"
     NUM_CLASSES: 2
-    #FPN_STRIDES: [4, 8, 16, 32, 64] #[8, 16, 32, 64, 128] # [4, 8, 162, 64, 128] [2, 4, 8, 16, 32] #
+    FPN_STRIDES: [4, 8, 16, 32, 64] #[8, 16, 32, 64, 128] # [4, 8, 162, 64, 128] [2, 4, 8, 16, 32] #
     NUM_CONVS: 4
-#  RPN:
-#    BATCH_SIZE_PER_IMAGE: 512
-#    ANCHOR_SIZES: (4, 8, 16, 32, 64) #(32, 64, 128, 256, 512) # (16, 32, 64, 128, 256, 512)
-#    MIN_SIZE: 15
+  RPN:
+    BATCH_SIZE_PER_IMAGE: 512
+    ANCHOR_SIZES: (4, 8, 16, 32, 64) #(32, 64, 128, 256, 512) # (16, 32, 64, 128, 256, 512)
+    MIN_SIZE: 15
 DATASETS:
   TRAIN: ("voc_man_shadows_train",)
   TEST: ("voc_man_shadows_frame_test",) #("voc_person8_train",)
@@ -51,9 +51,9 @@ SOLVER:
   STEPS: (120000, 160000)
   # MAX_ITER: 180000
   #STEPS: (6000, 8000)
-  MAX_ITER: 8000
+  MAX_ITER: 20000
   # MAX_ITER: 90000
-  IMS_PER_BATCH: 3 #  3
+  IMS_PER_BATCH: 2 #  3
   # IMS_PER_BATCH: 16
   WARMUP_METHOD: "constant"
   WARMUP_ITERS: 100
