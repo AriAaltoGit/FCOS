@@ -23,7 +23,7 @@ MODEL:
     IOU_LOSS_TYPE: "giou"
     NUM_CLASSES: 2
     FPN_STRIDES: [8, 12, 16, 32] #[8, 16, 32, 64, 128] # [4, 8, 162, 64, 128] [2, 4, 8, 16, 32] #
-    NUM_CONVS: 3
+    NUM_CONVS: 4
   RPN:
     BATCH_SIZE_PER_IMAGE: 512
     ANCHOR_SIZES: (8, 12, 16, 32) #(32, 64, 128, 256, 512) # (16, 32, 64, 128, 256, 512)
