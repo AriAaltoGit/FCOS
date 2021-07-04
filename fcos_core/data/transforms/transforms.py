@@ -79,6 +79,15 @@ class RandomHorizontalFlip(object):
             target = target.transpose(0)
         return image, target
 
+class Grayscaleimage(object):
+    def __init__(self, prob=0.5):
+        self.prob = prob
+
+    def __call__(self, image, target):
+        if random.random() < self.prob:
+            image = F.to_grayscale(image,3)
+            target = target.transpose(0)
+        return image, target
 
 class ToTensor(object):
     def __call__(self, image, target):
