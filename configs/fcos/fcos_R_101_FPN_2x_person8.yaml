@@ -51,15 +51,16 @@ SOLVER:
   STEPS: (120000, 160000)
   # MAX_ITER: 180000
   #STEPS: (6000, 8000)
-  MAX_ITER: 4000
+  MAX_ITER: 6000
   # MAX_ITER: 90000
-  IMS_PER_BATCH: 25 #  3
+  IMS_PER_BATCH: 30 #  3
   # IMS_PER_BATCH: 16
   WARMUP_METHOD: "constant"
   WARMUP_ITERS: 200
 OUTPUT_DIR: "/data/mnist/data_drive/fcos_trained_models/fcos_R_101_FPN_2x_person8_man_shadows"
 
-
+#0.6732 (0.7370)
+#0.6501 (0.6625)
 #("voc_person8_train",)
 
 # drone_train.sh --skip-test \
