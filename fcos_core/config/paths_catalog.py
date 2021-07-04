@@ -15,6 +15,10 @@ class DatasetCatalog(object):
             "data_dir": "/data/mnist/data_drive/man_shadows",
             "split": "person_test"
         },
+        "voc_frame_train": {
+            "data_dir": "/data/mnist/data_drive/frame_set",
+            "split": "person_train"
+        },
         "voc_man_shadows_frame_test": {
             "data_dir": "/data/mnist/data_drive/man_shadows_test",
             "split": "person_test"
