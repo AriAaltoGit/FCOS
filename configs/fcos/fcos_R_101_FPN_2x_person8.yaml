@@ -15,26 +15,28 @@ MODEL:
     BACKBONE_OUT_CHANNELS: 32
   RETINANET:
     USE_C5: False # FCOS uses P5 instead of C5
-#    NUM_CLASSES: 2
+    NUM_CLASSES: 7
   FCOS:
     NORM_REG_TARGETS: True
     CENTERNESS_ON_REG: True
     CENTER_SAMPLING_RADIUS: 1.5
     IOU_LOSS_TYPE: "giou"
-    NUM_CLASSES: 2
+    NUM_CLASSES: 7
     FPN_STRIDES: [8, 12, 16, 24, 32] #[8, 16, 32, 64, 128] # [4, 8, 162, 64, 128] [2, 4, 8, 16, 32] #
-    NUM_CONVS: 6
+    NUM_CONVS: 4
   RPN:
     BATCH_SIZE_PER_IMAGE: 512
     ANCHOR_SIZES: (8, 12, 16, 32) #(32, 64, 128, 256, 512) # (16, 32, 64, 128, 256, 512)
     MIN_SIZE: 15
+  ROI_BOX_HEAD:
+    NUM_CLASSES: 7
 DATASETS:
   TRAIN: ("voc_man_shadows_train",)
   TEST: ("voc_man_shadows_frame_test",) #("voc_person8_train",)
 INPUT:
   #MIN_SIZE_RANGE_TRAIN: (800, 1024) #(224, 800)
-  MIN_SIZE_TRAIN: (16,)
-  MAX_SIZE_TRAIN: 32
+  MIN_SIZE_TRAIN: (4096,)
+  MAX_SIZE_TRAIN: 4096
   MIN_SIZE_TEST: 4096 #1280
   MAX_SIZE_TEST: 4096 #1280
 DATALOADER:
@@ -51,18 +53,20 @@ SOLVER:
   STEPS: (120000, 160000)
   # MAX_ITER: 180000
   #STEPS: (6000, 8000)
-  MAX_ITER: 10000
+  MAX_ITER: 100
   # MAX_ITER: 90000
-  IMS_PER_BATCH: 35 #  3
+  IMS_PER_BATCH: 1 #  3
   # IMS_PER_BATCH: 16
   WARMUP_METHOD: "constant"
-  WARMUP_ITERS: 200
+  WARMUP_ITERS: 2
 OUTPUT_DIR: "/data/mnist/data_drive/fcos_trained_models/fcos_R_101_FPN_2x_person8_man_shadows"
 
-#0.6732 (0.7370)
-#0.6501 (0.6625)
-#0.6378 (0.6500)
-  #0.6378 (0.6500)
+# 0.6732 (0.7370)
+# 0.6501 (0.6625)
+# 0.6378 (0.6500)
+# 0.6378 (0.6500)
+# 0.6380 (0.6439)
+
 #("voc_person8_train",)
 
 # drone_train.sh --skip-test \
