@@ -16,7 +16,7 @@ def build_transforms(cfg, is_train=True):
                 cfg.INPUT.MIN_SIZE_RANGE_TRAIN[1] + 1
             ))
         max_size = cfg.INPUT.MAX_SIZE_TRAIN
-        flip_prob = 0 # cfg.INPUT.FLIP_PROB_TRAIN
+        flip_prob = 0.5 #cfg.INPUT.FLIP_PROB_TRAIN
     else:
         min_size = cfg.INPUT.MIN_SIZE_TEST
         max_size = cfg.INPUT.MAX_SIZE_TEST
@@ -30,7 +30,7 @@ def build_transforms(cfg, is_train=True):
     transform = T.Compose(
         [
             T.Resize(min_size, max_size),
-           # T.RandomHorizontalFlip(flip_prob),
+            T.RandomHorizontalFlip(flip_prob),
             T.ToTensor(),
             normalize_transform,
         ]
