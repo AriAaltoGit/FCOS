@@ -38,6 +38,11 @@ class PascalVOCDataset(torch.utils.data.Dataset):
         # "sofa",
         # "train",
         # "tvmonitor",
+        "tent",
+        "ship",
+        "car",
+        "bus",
+        "pole",
     )
 
     def __init__(self, data_dir, split, use_difficult=False, transforms=None):
