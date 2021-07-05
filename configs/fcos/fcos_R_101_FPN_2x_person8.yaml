@@ -22,7 +22,7 @@ MODEL:
     #CENTER_SAMPLING_RADIUS: 1.5
     #IOU_LOSS_TYPE: "giou"
     NUM_CLASSES: 7
-    FPN_STRIDES: [8, 12, 16, 24, 32] #[8, 16, 32, 64, 128] # [4, 8, 162, 64, 128] [2, 4, 8, 16, 32] #
+    FPN_STRIDES: [8, 16, 32, 64, 128] # [4, 8, 162, 64, 128] [2, 4, 8, 16, 32] # [8, 12, 16, 24, 32] #
     NUM_CONVS: 4
   RPN:
     BATCH_SIZE_PER_IMAGE: 1024
@@ -34,6 +34,8 @@ DATASETS:
   TRAIN: ("voc_frame_train",) #("voc_man_shadows_train",)
   TEST: ("voc_man_shadows_frame_test",) #("voc_person8_train",)
 INPUT:
+  # iter: 100  loss: 1.7077
+  # iter: 280  loss: 1.1057 (1.7654)
   #MIN_SIZE_RANGE_TRAIN: (800, 1024) #(224, 800)
   MIN_SIZE_TRAIN: (800,)
   MAX_SIZE_TRAIN: 3072
